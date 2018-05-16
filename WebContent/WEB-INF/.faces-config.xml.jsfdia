@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#giris.xhtml" PATH="/giris.xhtml"
+  SHAPE="155,103,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#giris.xhtml:0" NAME="item"
+   PATH="/giris.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="kullanici::#user.xhtml" NAME="output"
+    PATH="/user.xhtml" TARGET="rules:#user.xhtml" TITLE="kullanici" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="admin::#admin.xhtml" NAME="output1"
+    PATH="/admin.xhtml" TARGET="rules:#admin.xhtml" TITLE="admin" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#user.xhtml" PATH="/user.xhtml"
+  SHAPE="324,116,0,0" model-entity="JSFProcessGroup" persistent="true"/>
+ <PROCESS-ITEM NAME="rules:#admin.xhtml" PATH="/admin.xhtml"
+  SHAPE="304,208,50,25" model-entity="JSFProcessGroup" persistent="true"/>
+</PROCESS>

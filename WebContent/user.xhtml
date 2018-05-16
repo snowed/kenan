@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head></h:head>
+<body>
+	<h:form>
+		<h:panelGrid columns="2">
+
+ADINIZ:<h:outputText value="#{giris.kullaniciListesi.get(0).ad}"></h:outputText>
+SOYADINIZ:<h:outputText value="#{giris.kullaniciListesi.get(0).soyad}"></h:outputText>
+GÖREV TANIMLA
+<br />
+
+
+
+Görev Adı:<h:inputText value="#{giris.gorev.gorevAdi}" />
+Görev Son Tarih:<h:inputText value="#{giris.gorev.gorevSonTarihi}" />
+Görev Açıklama:<h:inputTextarea value="#{giris.gorev.gorevAciklamasi}" />
+Görev Durumu:<h:selectOneMenu value="#{giris.gorev.gorevDurumu}"
+				required="true">
+				<f:selectItems value="#{giris.secilenGorevDurumu}" />
+			</h:selectOneMenu>
+			<h:commandButton action="#{giris.gorevOlustur()}" value="GOREV EKLE"
+				rendered="#{giris.gorev.gorevAdi==null}" />
+			<h:commandButton action="#{giris.gorevEdit()}" value="GOREV DUZENLE"
+				rendered="#{giris.gorev.gorevAdi!=null}" />
+			<h:commandButton action="giris" value="giriş"/>
+
+		</h:panelGrid>
+
+		<h:dataTable value="#{giris.gorevGetir()}" var="grv">
+			<f:facet name="header">Gorev tablosu</f:facet>
+			<h:column>
+				<f:facet name="header">sec</f:facet>
+				<h:commandLink value="sec">
+					<f:setPropertyActionListener target="#{giris.gorev}" value="#{grv}" />
+				</h:commandLink>
+			</h:column>
+			<h:column>
+				<f:facet name="header">sil</f:facet>
+				<h:commandLink value="sil" action="#{giris.gorevKaldir()}">
+					<f:setPropertyActionListener target="#{giris.gorev}" value="#{grv}" />
+				</h:commandLink>
+			</h:column>
+			<h:column>
+				<f:facet name="header">Görev Adı</f:facet>
+				#{grv[2]}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Gorev Açıklaması</f:facet>
+				#{grv[1]}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Gorev Son Tarihi</f:facet>
+				#{grv[4]}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Gorev Durumu</f:facet>
+				#{grv[3]}
+			</h:column>
+		</h:dataTable>
+
+
+
+
+
+
+	</h:form>
+
+</body>
+</html>
