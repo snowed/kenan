@@ -2,7 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head></h:head>
 <body>
@@ -25,46 +26,41 @@ YETKİ:<h:inputText value="#{giris.rol.yetki}" />
 
 
 
-		<h:dataTable value="#{giris.userGetir()}" var="usr">
-			<f:facet name="header">Gorev tablosu</f:facet>
-			<h:column>
+		<p:dataTable value="#{giris.userGetir()}" var="usr">
+			<f:facet name="header">KULLANICI TABLOSU</f:facet>
+			<p:column>
 				<f:facet name="header">sec</f:facet>
 				<h:commandLink value="sec">
 					<f:setPropertyActionListener target="#{giris.rol}" value="#{usr}" />
 				</h:commandLink>
-			</h:column>
-			<h:column>
+			</p:column>
+			<p:column>
 				<f:facet name="header">sil</f:facet>
 				<h:commandLink value="sil" action="#{giris.userSil()}">
 					<f:setPropertyActionListener target="#{giris.rol}" value="#{usr}" />
 				</h:commandLink>
-			</h:column>
-			<h:column>
+			</p:column>
+			<p:column>
 				<f:facet name="header">KULLANICI ADI</f:facet>
 				#{usr[4]}
-			</h:column>
-			<h:column>
+			</p:column>
+			<p:column>
 				<f:facet name="header">ADI</f:facet>
 				#{usr[1]}
-			</h:column>
-			<h:column>
+			</p:column>
+			<p:column>
 				<f:facet name="header">SOYADI</f:facet>
 				#{usr[3]}
-			</h:column>
-			<h:column>
+			</p:column>
+			<p:column>
 				<f:facet name="header">ŞİFRESİ</f:facet>
 				#{usr[2]}
-			</h:column>
-			<h:column>
+			</p:column>
+			<p:column>
 				<f:facet name="header">YETKİSİ</f:facet>
 				#{usr[5]}
-			</h:column>
-		</h:dataTable>
-
-
-
-
-
+			</p:column>
+		</p:dataTable>
 	</h:form>
 
 
